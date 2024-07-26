@@ -161,7 +161,7 @@ stock SetVehicleParams(vehicleid, type, status, delay = 0)
 	new
 		params[7];
 
-    if (GetVehicleParamsEx(vehicleid, params[0], params[1], params[2], params[3], params[4], params[5], params[6]))
+    if (GetVehicleParamsEx(vehicleid, bool:params[0], bool:params[1], bool:params[2], bool:params[3], bool:params[4], bool:params[5], bool:params[6]))
 	{
 		params[type] = status;
 
@@ -381,21 +381,6 @@ stock EVF_AddStaticVehicle(modelid, Float:x, Float:y, Float:z, Float:a, color1, 
 
     if (400 <= modelid <= 611)
     {
-        new
-            randcolor1,
-            randcolor2;
-
-        if (GetVehicleRandomColors(modelid, randcolor1, randcolor2))
-        {
-            if (color1 == -1)
-            {
-                color1 = randcolor1;
-            }
-            if (color2 == -1)
-            {
-                color2 = randcolor2;
-            }
-        }
         vehicleid = AddStaticVehicle(modelid, x, y, z, a, color1, color2);
 
         if (vehicleid != INVALID_VEHICLE_ID)
@@ -424,21 +409,6 @@ stock EVF_AddStaticVehicleEx(modelid, Float:spawn_x, Float:spawn_y, Float:spawn_
 
     if (400 <= modelid <= 611)
     {
-        new
-            randcolor1,
-            randcolor2;
-
-        if (GetVehicleRandomColors(modelid, randcolor1, randcolor2))
-        {
-            if (color1 == -1)
-            {
-                color1 = randcolor1;
-            }
-            if (color2 == -1)
-            {
-                color2 = randcolor2;
-            }
-        }
         vehicleid = AddStaticVehicleEx(modelid, Float:spawn_x, Float:spawn_y, Float:spawn_z, Float:z_angle, color1, color2, respawn_delay);
 
         if (vehicleid != INVALID_VEHICLE_ID)
